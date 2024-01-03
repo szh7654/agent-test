@@ -10,6 +10,7 @@ import net.bytebuddy.pool.TypePool;
 
 import java.io.File;
 import java.io.IOException;
+import java.lang.instrument.Instrumentation;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -17,9 +18,9 @@ import static net.bytebuddy.matcher.ElementMatchers.*;
 import static net.bytebuddy.matcher.ElementMatchers.nameContains;
 
 public class Main {
-    public static void initialize(File jarFile) throws IOException {
+    public static void initialize(File jarFile, Instrumentation inst) throws IOException {
         System.out.println("initialize");
-        ByteBuddy byteBuddy = new ByteBuddy().with(TypeValidation.of(true));
+        ByteBuddy byteBuddy = new ByteBuddy().with(TypeValidation.of(false));
         AgentBuilder.LocationStrategy locationStrategy = AgentBuilder.LocationStrategy.ForClassLoader.WEAK;
         // ...
         locationStrategy = new AgentBuilder.LocationStrategy.Compound(
@@ -44,6 +45,7 @@ public class Main {
             .with(locationStrategy)
             // ReaderMode.FAST as we don't need to read method parameter names
             .with(AgentBuilder.PoolStrategy.Default.FAST)
+            .with(AgentBuilder.Listener.StreamWriting.toSystemOut().withTransformationsOnly())
             .ignore(any(), isReflectionClassLoader())
             .or(any(), classLoaderWithName("org.codehaus.groovy.runtime.callsite.CallSiteClassLoader"))
             .or(nameStartsWith("org.aspectj."))
@@ -73,11 +75,11 @@ public class Main {
             .or(nameContains("javassist"))
             .or(nameContains(".asm."))
             .disableClassFormatChanges();
-        agentBuilder.type(named("com.example.demo.TestController"))
-            .transform(new AgentBuilder.Transformer.ForAdvice()
-                .include(Thread.currentThread().getContextClassLoader())
-                .advice(named("loadObjectByKey"), "szh.TestInterceptor"))
+        agentBuilder.type(named("org.springframework.web.servlet.DispatcherServlet"))
+                .transform(new AgentBuilder.Transformer.ForAdvice().advice(
+                        named("doDispatch"), "java.lang.szh.szh.DispatcherServletInterceptor"))
             .installOn(inst);
+        AgentBuilder.PoolStrategy.WithTypePoolCache.
     }
 
     public static ElementMatcher.Junction<ClassLoader> classLoaderWithName(final String name) {

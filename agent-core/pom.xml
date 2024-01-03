@@ -14,7 +14,10 @@
     <url>http://maven.apache.org</url>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring-core.version>5.0.0.RELEASE</spring-core.version>
+        <spring-webmvc.version>5.0.0.RELEASE</spring-webmvc.version>
+        <javax-servlet-api.version>3.0.1</javax-servlet-api.version>
+        <spring-webflux.version>5.0.0.RELEASE</spring-webflux.version>
     </properties>
 
     <dependencies>
@@ -23,8 +26,40 @@
             <artifactId>byte-buddy</artifactId>
             <version>1.14.9</version>
         </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>${javax-servlet-api.version}</version>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
     <build>
         <finalName>agent-core</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <relocations>
+                        <relocation>
+                            <pattern>net.bytebuddy</pattern>
+                            <shadedPattern>${shade.package}.net.bytebuddy</shadedPattern>
+                            <pattern>szh</pattern>
+                            <shadedPattern>${shade.package}.szh</shadedPattern>
+                        </relocation>
+                    </relocations>
+                </configuration>
+
+            </plugin>
+        </plugins>
     </build>
 </project>
