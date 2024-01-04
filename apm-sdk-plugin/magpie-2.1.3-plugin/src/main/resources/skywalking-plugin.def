@@ -1,0 +1,4 @@
+org.apache.skywalking.apm.plugin.magpie.binary.AbstractServerPayloadListenerHandleRule
+org.apache.skywalking.apm.plugin.magpie.binary.OneToOneInvokerWrapperCallRule
+org.apache.skywalking.apm.plugin.magpie.rpc.AbstractInvokerRule
+org.apache.skywalking.apm.plugin.magpie.rpc.AbstractProxyInvokerRule

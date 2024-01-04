@@ -24,7 +24,7 @@
         <dependency>
             <groupId>net.bytebuddy</groupId>
             <artifactId>byte-buddy</artifactId>
-            <version>1.14.9</version>
+            <version>${bytebuddy.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -34,17 +34,17 @@
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-agent-core -->
-<!--        <dependency>-->
-<!--            <groupId>szh</groupId>-->
-<!--            <artifactId>apm-agent-core</artifactId>-->
-<!--            <version>${project.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <groupId>net.bytebuddy</groupId>-->
-<!--                    <artifactId>byte-buddy</artifactId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.apache.skywalking</groupId>
+            <artifactId>apm-agent-core</artifactId>
+            <version>${skywalking.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>net.bytebuddy</groupId>
+                    <artifactId>byte-buddy</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
     </dependencies>
     <build>
@@ -72,10 +72,10 @@
                             <pattern>szh</pattern>
                             <shadedPattern>${shade.package}.szh</shadedPattern>
                         </relocation>
-<!--                        <relocation>-->
-<!--                            <pattern>org.apache.skywalking</pattern>-->
-<!--                            <shadedPattern>${shade.package}.org.apache.skywalking</shadedPattern>-->
-<!--                        </relocation>-->
+                        <relocation>
+                            <pattern>org.apache.skywalking</pattern>
+                            <shadedPattern>${shade.package}.org.apache.skywalking</shadedPattern>
+                        </relocation>
                     </relocations>
                 </configuration>
 
