@@ -13,9 +13,9 @@ import java.util.jar.JarFile;
  * BootStrapClassLoader<===agent-core.jar
  * |
  * |
- * Initializer.class
- *
- *
+ * Initializer.class===> bytebuddy.advice()
+ *                           |
+ *                           |
  * AgentBootClassLoader<===agent-core.jar(interceptor.class)
  */
 public class AgentMain {

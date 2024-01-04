@@ -10,4 +10,7 @@ public class MyClass {
         this.request = request;
         this.response = response;
     }
+    public void echo() {
+        System.out.println("request: " + request + ", response: " + response);
+    }
 }

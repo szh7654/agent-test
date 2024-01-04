@@ -12,6 +12,7 @@ public class DispatcherServletInterceptor {
                                      @Advice.Argument(1) HttpServletResponse response) {
         System.out.println(response.getStatus());
         System.out.println(request.getRequestURL());
+        new MyClass(request, response).echo();
         return "12345";
     }
 
