@@ -39,10 +39,10 @@ public class PluginManager {
                 pluginClassLoaders.add(classLoader);
             }
         }
-        loadRules();
     }
 
-    public void loadRules() {
+    public void applyRules() {
+        AgentBuilder agentBuilder = ByteBuddyUtil.getAgentBuilder();
         for (URLClassLoader classLoader : pluginClassLoaders) {
             Enumeration<URL> urls = null;
             try {
@@ -62,8 +62,12 @@ public class PluginManager {
                 while ((ruleClassName = reader.readLine()) != null) {
                     try {
                         AbstractRule rule = (AbstractRule) Class.forName(ruleClassName, true, classLoader).newInstance();
-                        rules.add(rule);
-                        LOGGER.info("Load rule class {} sucess", rule.getClass().getCanonicalName());
+                        LOGGER.info("Load rule class {} success", rule.getClass().getCanonicalName());
+                        agentBuilder = agentBuilder.type(rule.classMatcher())
+                                .transform(new AgentBuilder.Transformer.ForAdvice()
+                                        .include(classLoader)
+                                        .advice(rule.methodMatcher(), rule.interceptorClass().getCanonicalName()));
+
                     } catch (ClassNotFoundException | InstantiationException | IllegalAccessException e) {
                         LOGGER.error(e, "Failed to load rule class: {}", defUrl);
                     }
@@ -72,14 +76,7 @@ public class PluginManager {
                 LOGGER.error("failed to read .def file", e);
             }
         }
-    }
-
-    public void applyRules() {
-        AgentBuilder agentBuilder =   ByteBuddyUtil.getAgentBuilder();
-        for (AbstractRule rule : rules) {
-            AgentBuilder.Identified.Narrowable  extendableBuilder = rule.buildAgentChain1(agentBuilder);
-            agentBuilder = rule.buildAgentChain2(extendableBuilder);
-        }
         agentBuilder.installOn(inst);
+        LOGGER.info("Install transform success");
     }
 }

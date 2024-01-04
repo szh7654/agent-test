@@ -22,17 +22,18 @@ import static net.bytebuddy.matcher.ElementMatchers.named;
 
 public class Initializer {
     private static ILog LOGGER = LogManager.getLogger(Initializer.class);
-    public static void initialize(File jarFile, ClassLoader classLoader, Instrumentation inst) throws IOException {
-
-        System.out.println("initialize");
-
+    public static void initialize(File jarFile, String agentOptions, Instrumentation inst) {
         String jarPath = jarFile.getPath();
-        String dir = jarPath.substring(0, jarPath.lastIndexOf('/'));
-        System.out.println(dir);
-        System.setProperty("skywalking_config", dir + "/agent.config");
-        System.out.println("initialize");
+        String fileSeparator = System.getProperty("file.separator");
+        if (fileSeparator == null || fileSeparator.length() == 0) {
+            LOGGER.warn("file.separator is empty, use '/' instead.");
+            fileSeparator = "/";
+        }
+        String dir = jarPath.substring(0, jarPath.lastIndexOf(fileSeparator)) + fileSeparator;
+        LOGGER.info("Agent jar directory: {}", dir);
+        System.setProperty("skywalking_config", dir + "agent.config");
         try {
-            SnifferConfigInitializer.initializeCoreConfig("");
+            SnifferConfigInitializer.initializeCoreConfig(agentOptions);
         } catch (Exception e) {
             LogManager.getLogger(Initializer.class).error(e, "Agent initialized failure. Shutting down.");
             return;
@@ -45,13 +46,9 @@ public class Initializer {
         }
 
 
-        String pluginDir = dir + "/plugins";
+        String pluginDir = dir + "plugins";
         new PluginManager(pluginDir, inst).applyRules();
 
         Runtime.getRuntime().addShutdownHook(new Thread(ServiceManager.INSTANCE::shutdown, "skywalking service shutdown thread"));
     }
-
-    static List<ClassLoader> pluginClassLoaders = new ArrayList<>();
-    List<URL> defUrls = new ArrayList<>();
-    List<AbstractRule> rules = new ArrayList<>();
 }

@@ -9,15 +9,19 @@
   <modules>
     <module>bootstrap</module>
     <module>agent-core</module>
+    <module>apm-sdk-plugin</module>
   </modules>
 
   <properties>
-    <java.version>20</java.version>
-    <compiler.version>20</compiler.version>
-    <maven.compiler.source>20</maven.compiler.source>
-    <maven.compiler.target>20</maven.compiler.target>
+    <java.version>21</java.version>
+    <compiler.version>21</compiler.version>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <shade.package>java.lang.szh</shade.package>
+    <skywalking.version>9.1.0</skywalking.version>
+    <bytebuddy.version>1.14.10</bytebuddy.version>
+    <maven.shade.plugin.version>3.5.0</maven.shade.plugin.version>
   </properties>
 
   <dependencies>
@@ -29,36 +33,24 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
         <version>3.1.0</version>
         <executions>
           <execution>
-            <id>clean</id>
-            <phase>clean</phase>
+            <id>install</id>
+            <phase>package</phase>
+            <configuration>
+<!--              <target>-->
+<!--                <mkdir dir="${basedir}/agent-dist" />-->
+<!--                <copy todir="${basedir}/agent-dist" overwrite="true"-->
+<!--                      file="${basedir}/agent.config" />-->
+<!--              </target>-->
+            </configuration>
             <goals>
               <goal>run</goal>
             </goals>
-            <configuration>
-              <target>
-                <delete dir="${project.basedir}/target" />
-              </target>
-            </configuration>
           </execution>
-<!--          <execution>-->
-<!--            <id>package</id>-->
-<!--            <phase>package</phase>-->
-<!--            <goals>-->
-<!--              <goal>run</goal>-->
-<!--            </goals>-->
-<!--            <configuration>-->
-<!--              <target>-->
-<!--                <mkdir dir="${project.basedir}/target" />-->
-<!--                <copy file="${project.basedir}/agent-core/target/agent-core.jar" tofile="${project.basedir}/target/agent-core.jar" overwrite="true" />-->
-<!--                <copy file="${project.basedir}/bootstrap/target/boot.jar" tofile="${project.basedir}/target/boot.jar" overwrite="true" />-->
-
-<!--              </target>-->
-<!--            </configuration>-->
-<!--          </execution>-->
         </executions>
       </plugin>
     </plugins>

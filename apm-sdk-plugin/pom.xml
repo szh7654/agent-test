@@ -29,8 +29,8 @@
     <artifactId>apm-sdk-plugin</artifactId>
 
     <modules>
-        <module>upjas-plugin</module>
-        <module>magpie-2.1.3-plugin</module>
+<!--        <module>upjas-plugin</module>-->
+<!--        <module>magpie-2.1.3-plugin</module>-->
         <module>jdbc-plugin</module>
         <module>spring-mvc-plugin</module>
     </modules>
@@ -105,48 +105,6 @@
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpathref="maven.runtime.classpath" />
-                                <if>
-                                    <equals arg1="${project.packaging}" arg2="jar" />
-                                    <then>
-                                        <mkdir dir="${plugin.dest.dir}" />
-                                        <copy file="${project.build.directory}/${project.artifactId}-${project.version}.jar" tofile="${plugin.dest.dir}/${project.artifactId}-${project.version}.jar" overwrite="true" />
-                                    </then>
-                                </if>
-
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-                <dependencies>
-                    <dependency>
-                        <groupId>ant-contrib</groupId>
-                        <artifactId>ant-contrib</artifactId>
-                        <version>${ant-contrib.version}</version>
-                        <exclusions>
-                            <exclusion>
-                                <groupId>ant</groupId>
-                                <artifactId>ant</artifactId>
-                            </exclusion>
-                        </exclusions>
-                    </dependency>
-                    <dependency>
-                        <groupId>org.apache.ant</groupId>
-                        <artifactId>ant-nodeps</artifactId>
-                        <version>${ant-nodeps.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
         </plugins>
     </build>

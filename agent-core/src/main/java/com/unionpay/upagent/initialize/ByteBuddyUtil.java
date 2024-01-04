@@ -16,13 +16,13 @@ public class ByteBuddyUtil {
                 // when runtime attaching, only retransform up to 100 classes at once and sleep 100ms in-between as retransformation causes a stop-the-world pause
                 .with(AgentBuilder.RedefinitionStrategy.BatchAllocator.ForFixedSize.ofSize(100))
                 .with(AgentBuilder.RedefinitionStrategy.Listener.Pausing.of(100, TimeUnit.MILLISECONDS))
-                .with(new AgentBuilder.RedefinitionStrategy.Listener.Adapter() {
-                    @Override
-                    public Iterable<? extends List<Class<?>>> onError(int index, List<Class<?>> batch, Throwable throwable, List<Class<?>> types) {
-                        System.out.println("Error while redefining classes\n" + throwable.getMessage());
-                        return super.onError(index, batch, throwable, types);
-                    }
-                })
+//                .with(new AgentBuilder.RedefinitionStrategy.Listener.Adapter() {
+//                    @Override
+//                    public Iterable<? extends List<Class<?>>> onError(int index, List<Class<?>> batch, Throwable throwable, List<Class<?>> types) {
+//                        System.out.println("Error while redefining classes\n" + throwable.getMessage());
+//                        return super.onError(index, batch, throwable, types);
+//                    }
+//                })
                 // ReaderMode.FAST as we don't need to read method parameter names
                 .with(AgentBuilder.PoolStrategy.Default.FAST)
                 .with(AgentBuilder.Listener.StreamWriting.toSystemOut().withTransformationsOnly())
