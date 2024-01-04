@@ -32,6 +32,20 @@
             <version>${javax-servlet-api.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.apache.skywalking/apm-agent-core -->
+<!--        <dependency>-->
+<!--            <groupId>szh</groupId>-->
+<!--            <artifactId>apm-agent-core</artifactId>-->
+<!--            <version>${project.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <groupId>net.bytebuddy</groupId>-->
+<!--                    <artifactId>byte-buddy</artifactId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+
     </dependencies>
     <build>
         <finalName>agent-core</finalName>
@@ -50,12 +64,18 @@
                 </executions>
                 <configuration>
                     <relocations>
+<!--                        <relocation>-->
+<!--                            <pattern>net.bytebuddy</pattern>-->
+<!--                            <shadedPattern>${shade.package}.net.bytebuddy</shadedPattern>-->
+<!--                        </relocation>-->
                         <relocation>
-                            <pattern>net.bytebuddy</pattern>
-                            <shadedPattern>${shade.package}.net.bytebuddy</shadedPattern>
                             <pattern>szh</pattern>
                             <shadedPattern>${shade.package}.szh</shadedPattern>
                         </relocation>
+<!--                        <relocation>-->
+<!--                            <pattern>org.apache.skywalking</pattern>-->
+<!--                            <shadedPattern>${shade.package}.org.apache.skywalking</shadedPattern>-->
+<!--                        </relocation>-->
                     </relocations>
                 </configuration>
 

@@ -10,8 +10,4 @@ public class MyClass {
         this.request = request;
         this.response = response;
     }
-    public void act() {
-        System.out.println(response.getStatus());
-        System.out.println(request.getRequestURL());
-    }
 }

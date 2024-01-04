@@ -17,7 +17,11 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy-agent</artifactId>
+            <version>1.14.9</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>boot</finalName>

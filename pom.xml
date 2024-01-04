@@ -12,15 +12,16 @@
   </modules>
 
   <properties>
+    <java.version>20</java.version>
+    <compiler.version>20</compiler.version>
+    <maven.compiler.source>20</maven.compiler.source>
+    <maven.compiler.target>20</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <shade.package>java.lang.szh</shade.package>
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>net.bytebuddy</groupId>
-      <artifactId>byte-buddy-agent</artifactId>
-      <version>1.14.9</version>
-    </dependency>
+
 
 
   </dependencies>

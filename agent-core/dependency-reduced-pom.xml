@@ -26,8 +26,6 @@
         <configuration>
           <relocations>
             <relocation>
-              <pattern>net.bytebuddy</pattern>
-              <shadedPattern>${shade.package}.net.bytebuddy</shadedPattern>
               <pattern>szh</pattern>
               <shadedPattern>${shade.package}.szh</shadedPattern>
             </relocation>

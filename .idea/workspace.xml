@@ -5,23 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bd4f431e-21c8-414c-ae4a-542537383fe8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/MyClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/RootPackageCustomLocator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/TestInterceptor.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/src/main/java/szh/AgentBootClassLoader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/src/main/java/szh/AgentMain.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/src/main/java/szh/Attacher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/bootstrap/src/main/java/szh/MyClass.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo/src/main/java/com/example/demo/TestController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent-core/src/main/java/szh/DispatcherServletInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/DispatcherServletInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent-core/src/main/java/szh/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/agent-core/src/main/java/szh/MyClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/agent-core/src/main/java/szh/MyClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/szh/AgentMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/bootstrap/src/main/java/szh/AgentMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bootstrap/src/main/java/szh/MyClass.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +32,18 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="$USER_HOME$/d/D/devtools/mvn_repo" />
+        <option name="mavenHome" value="$USER_HOME$/d/D/devtools/apache-maven-3.8.5" />
+        <option name="userSettingsFile" value="$USER_HOME$/.m2/settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2aLjdOfPtgCatk8XB3zT5zmqmsP" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -64,7 +64,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
     "jdk.selected.JAVA_MODULE": "21",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Users/szh/prjs/agent/bootstrap/target",
@@ -73,6 +74,10 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Facets",
+    "project.structure.proportion": "0.15722851",
+    "project.structure.side.proportion": "0.27177697",
+    "settings.editor.selected.configurable": "ai.codegeex.plugin.settings.ApplicationConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -84,6 +89,7 @@
       <recent name="C:\Users\szh\prjs\agent\bootstrap\target" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/bootstrap/target" />
       <recent name="C:\Users\szh\prjs\agent\bootstrap\target" />
       <recent name="C:\Users\szh\prjs\agent\target" />
       <recent name="C:\Users\szh\prjs\agent\bootstrap\src\main\java\szh" />
@@ -123,6 +129,8 @@
       <option name="presentableId" value="Default" />
       <updated>1704104841321</updated>
       <workItem from="1704104842387" duration="13727000" />
+      <workItem from="1704183052526" duration="1191000" />
+      <workItem from="1704188246371" duration="16570000" />
     </task>
     <servers />
   </component>
@@ -154,16 +162,51 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/bootstrap/src/main/java/szh/AgentBootClassLoader.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="7" />
+          <url>file://$PROJECT_DIR$/agent-core/src/main/java/szh/Main.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/bootstrap/src/main/java/szh/AgentBootClassLoader.java</url>
-          <line>52</line>
-          <option name="timeStamp" value="11" />
+          <url>file://$PROJECT_DIR$/agent-core/src/main/java/szh/Main.java</url>
+          <line>84</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/d/D/devtools/mvn_repo/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9-sources.jar!/net/bytebuddy/asm/Advice.java</url>
+          <line>396</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/d/D/devtools/mvn_repo/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9-sources.jar!/net/bytebuddy/agent/builder/AgentBuilder.java</url>
+          <line>3258</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/d/D/devtools/mvn_repo/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9-sources.jar!/net/bytebuddy/agent/builder/AgentBuilder.java</url>
+          <line>3003</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/d/D/devtools/mvn_repo/net/bytebuddy/byte-buddy/1.14.9/byte-buddy-1.14.9-sources.jar!/net/bytebuddy/agent/builder/AgentBuilder.java</url>
+          <line>2995</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/agent-core/src/main/java/szh/Main.java</url>
+          <line>81</line>
+          <option name="timeStamp" value="23" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="net.bytebuddy.asm.Advice$WithCustomMapping" memberName="postProcessorFactory" />
+        <PinnedItemInfo parentTag="net.bytebuddy.dynamic.ClassFileLocator$Compound" memberName="classFileLocators" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
